@@ -1,0 +1,35 @@
+<%- include("partials/_header") %> 
+<%- include("partials/_navigation") %>
+<!-- header section end -->
+<!-- about section start -->
+<div class="about_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="about_taital"><%= furniture.title %></h1>
+        <p class="about_text">
+          <%= furniture.description %>
+        </p>
+      </div>
+    </div>
+    <div class="about_section_2 layout_padding">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="about_img"><img src="images/about-img.png" /></div>
+        </div>
+        <div class="col-md-6">
+          <div class="good_text">Good Furntures Design</div>
+          <p class="making_text">
+            Necessary, making this the first true generator on the Internet. It
+            uses a dictionary of over 200 Latin words, combined with a handful
+            of model sentence structures, to
+          </p>
+          <div class="read_bt"><a href="#">Read More</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- about section end -->
+<!-- footer section start -->
+<%- include("partials/_footer") %>
