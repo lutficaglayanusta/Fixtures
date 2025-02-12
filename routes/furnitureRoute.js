@@ -1,10 +1,12 @@
 import express from "express"
-import { addFurniture,getAllFurniture,getFurniture} from "../controller/furnitureController.js"
+import { addFurniture, getFurniture } from "../controller/furnitureController.js"
+import { getAllCategory } from "../controller/categoryController.js"
 
 const router = express.Router()
 
 router.post("/", addFurniture)
-router.get("/", getAllFurniture)
+
+router.get("/", getAllCategory);
 router.get("/:slug",getFurniture)
 
 

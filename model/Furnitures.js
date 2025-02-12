@@ -22,6 +22,10 @@ const FurnituresSchema = new Schema({
   slug: {
     type: String,
     unique:true
+  },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref:"Category"
   }
 });
 FurnituresSchema.pre("validate", function (next) {

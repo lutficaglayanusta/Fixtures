@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import pageRoute from "./routes/pageRoute.js"
 import furnitureRoute from "./routes/furnitureRoute.js"
+import categoryRoute from "./routes/categoryRoute.js"
 
 const app = express();
 
@@ -16,7 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use("/", pageRoute)
-app.use("/furnitures",furnitureRoute)
+app.use("/furnitures", furnitureRoute)
+app.use("/categories",categoryRoute)
 
 const port = 3000;
 
