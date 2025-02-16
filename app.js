@@ -1,8 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
-import pageRoute from "./routes/pageRoute.js"
-import furnitureRoute from "./routes/furnitureRoute.js"
-import categoryRoute from "./routes/categoryRoute.js"
+import pageRoute from "./routes/pageRoute.js";
+import furnitureRoute from "./routes/furnitureRoute.js";
+import categoryRoute from "./routes/categoryRoute.js";
+import userRoute from "./routes/userRoute.js";
 
 const app = express();
 
@@ -14,11 +15,10 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
-
-app.use("/", pageRoute)
-app.use("/furnitures", furnitureRoute)
-app.use("/categories",categoryRoute)
+app.use("/", pageRoute);
+app.use("/furnitures", furnitureRoute);
+app.use("/categories", categoryRoute);
+app.use("/users", userRoute);
 
 const port = 3000;
 

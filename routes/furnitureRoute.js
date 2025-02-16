@@ -5,7 +5,6 @@ import { getAllCategory } from "../controller/categoryController.js"
 const router = express.Router()
 
 router.post("/", addFurniture)
-
 router.get("/", getAllCategory);
 router.get("/:slug",getFurniture)
 
