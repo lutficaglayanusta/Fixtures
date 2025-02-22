@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import session from "express-session";
 import pageRoute from "./routes/pageRoute.js";
 import furnitureRoute from "./routes/furnitureRoute.js";
 import categoryRoute from "./routes/categoryRoute.js";
@@ -14,6 +15,20 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(
+  session({
+    secret: "my_keyboard_cat", // Buradaki texti değiştireceğiz.
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+global.userIN = null;
+
+app.use("*", (req, res, next) => {
+  userIN = req.session.userID;
+  next()
+})
 
 app.use("/", pageRoute);
 app.use("/furnitures", furnitureRoute);

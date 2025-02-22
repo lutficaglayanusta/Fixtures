@@ -21,8 +21,9 @@ export const loginUser = async (req, res) => {
 
     if (user) {
         const same = bcrypt.compare(password, user.password).then(same => {
-            if (same) {
-              return res.status(200).send("You are logged in")
+          if (same) {
+              req.session.userID = user._id
+              return res.status(200).redirect("/")
           }
       });
     }

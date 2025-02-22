@@ -4,37 +4,37 @@ const Schema = mongoose.Schema;
 
 const FurnituresSchema = new Schema({
   title: {
-        type: String,
-        required:true
+    type: String,
+    required: true,
   },
   description: {
-      type: String,
-      required: true,
-      trim:true
+    type: String,
+    required: true,
+    trim: true,
   },
   image: {
     type: String,
-    },
-    createAt: {
-        type: Date,
-        default:Date.now
+  },
+  createAt: {
+    type: Date,
+    default: Date.now,
   },
   slug: {
     type: String,
-    unique:true
+    unique: true,
   },
   category: {
     type: mongoose.Schema.Types.ObjectId,
-    ref:"Category"
-  }
+    ref: "Category",
+  },
 });
 FurnituresSchema.pre("validate", function (next) {
   this.slug = slugify(this.title, {
     lower: true,
-    strict:true
-  })
-  next()
-})
+    strict: true,
+  });
+  next();
+});
 
 const Furniture = mongoose.model("Furniture", FurnituresSchema);
 
