@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import session from "express-session";
+import MongoStore from "connect-mongo";
 import pageRoute from "./routes/pageRoute.js";
 import furnitureRoute from "./routes/furnitureRoute.js";
 import categoryRoute from "./routes/categoryRoute.js";
@@ -21,6 +22,7 @@ app.use(
     secret: "my_keyboard_cat", // Buradaki texti değiştireceğiz.
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: "mongodb://localhost/fixtures" }),
   })
 );
 global.userIN = null;

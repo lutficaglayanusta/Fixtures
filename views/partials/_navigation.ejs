@@ -37,7 +37,7 @@
                   <li class="<%= page_name ==='about' && 'active' %>"><a href="/about">About</a></li>
 
                   <% if(userIN) {%>
-                     <li class="<%= page_name ==='dashboard' && 'active' %>"><a href="/dashboard">Dashboard</a></li>
+                     <li class="<%= page_name ==='dashboard' && 'active' %>"><a href="/users/dashboard">Dashboard</a></li>
                   <% } %>
                   <li class="<%= page_name ==='furnitures' && 'active' %>"><a href="/furnitures">Furnitures</a></li>
                   <li class="<%= page_name ==='contact' && 'active' %>"><a href="/contact">Contact Us</a></li>
@@ -46,7 +46,7 @@
                      <li class="<%= page_name ==='login' && 'active' %>"><a href="/login">Login</a></li>
                      <li class="<%= page_name ==='register' && 'active' %>"><a href="/register">Register</a></li>
                   <% } else { %>
-                     <li class="<%= page_name ==='register' && 'active' %>"><a href="/register">Çıkış Yap</a></li>
+                     <li class="<%= page_name ==='register' && 'active' %>"><a href="/users/logout">Çıkış Yap</a></li>
                      <% } %>
                </ul>
             </div>
