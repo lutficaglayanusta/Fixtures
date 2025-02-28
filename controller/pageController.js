@@ -1,4 +1,5 @@
 import Furniture from "../model/Furnitures.js";
+import mongoose from "mongoose";
 
 export const getIndexPage = async (req, res) => {
   const furnitures = await Furniture.find();
@@ -27,3 +28,14 @@ export const getLoginPage = async (req, res) => {
     page_name: "login",
   });
 };
+
+export const getFilterCategoryPage = async (req, res) => {
+  const { id } = req.params;
+  const furnitureCategories = await Furniture.find({ category: id});
+  
+
+  res.status(200).render("category", {
+    furnitureCategories,
+    page_name: "category",
+  })
+}

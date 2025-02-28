@@ -19,11 +19,21 @@ export const addFurniture = async (req, res) => {
 };
 export const getAllFurniture = async (req, res) => {
   try {
-    const furnitures = await Furniture.find();
+    const categorySlug = req.query.categories;
+
+    const category = await Category.findOne({ slug: categorySlug });
+
+    let filter = {};
+
+    if (categorySlug) {
+      filter = { category: category._id };
+    }
+
+    const furnitures = await Furniture.find(filter);
 
     res.status(200).render("furnitures", {
-        furnitures,
-        page_name:"furnitures"
+      furnitures,
+      page_name: "furnitures",
     });
   } catch (error) {
     res.status(400).json({
@@ -34,13 +44,11 @@ export const getAllFurniture = async (req, res) => {
 };
 export const getFurniture = async (req, res) => {
   try {
-    const furniture = await Furniture.findOne({ slug: req.params.slug })
-    
+    const furniture = await Furniture.findOne({ slug: req.params.slug });
+
     res.status(200).render("furniture", {
       furniture,
-      page_name:"furtinure"
-    })
-  } catch (error) {
-    
-  }
-}
+      page_name: "furtinure",
+    });
+  } catch (error) {}
+};
